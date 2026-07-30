@@ -6,24 +6,64 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import load_iris
-# -------------------------------
-# Sidebar : ข้อมูลผู้พัฒนา
-# -------------------------------
-st.sidebar.markdown("---")
-st.sidebar.header("👨‍💻 ผู้พัฒนา")
+import base64
 
-st.sidebar.image(
-    "images/thanaphon.jpg",
-    width=180
+# อ่านรูปเป็น Base64
+def get_base64(image_path):
+    with open(image_path, "rb") as img:
+        return base64.b64encode(img.read()).decode()
+
+img = get_base64("images/thanaphon.jpg")
+
+st.markdown(
+    f"""
+    <style>
+    .developer-card {{
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg,#4f46e5,#7c3aed);
+        padding: 25px;
+        border-radius: 20px;
+        color: white;
+        margin-top:20px;
+        margin-bottom:25px;
+        box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    }}
+
+    .developer-card img {{
+        width:140px;
+        height:140px;
+        border-radius:50%;
+        border:5px solid white;
+        margin-right:30px;
+        object-fit:cover;
+    }}
+
+    .developer-card h2 {{
+        margin:0;
+        font-size:32px;
+    }}
+
+    .developer-card p {{
+        font-size:18px;
+        margin:6px 0;
+    }}
+    </style>
+
+    <div class="developer-card">
+        <img src="data:image/jpeg;base64,{img}">
+        <div>
+            <h2>👨‍💻 ผู้พัฒนา</h2>
+            <p><b>ชื่อ:</b> ธนพล ดีสองชั้น</p>
+            <p><b>รหัสนักศึกษา:</b> 664245013</p>
+            <p><b>ห้อง:</b> 66/43</p>
+            <p><b>โครงงาน:</b> K-Means Clustering App</p>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
-st.sidebar.markdown("""
-### ธนพล ดีสองชั้น
-
-**รหัสนักศึกษา:** 664245013
-
-**ห้อง:** 66/43
-""")
 
 # ตั้งค่าหน้า
 st.set_page_config(
