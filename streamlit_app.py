@@ -6,6 +6,24 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import load_iris
+# -------------------------------
+# Sidebar : ข้อมูลผู้พัฒนา
+# -------------------------------
+st.sidebar.markdown("---")
+st.sidebar.header("👨‍💻 ผู้พัฒนา")
+
+st.sidebar.image(
+    "images/thanaphon.jpg",
+    width=180
+)
+
+st.sidebar.markdown("""
+### ธนพล ดีสองชั้น
+
+**รหัสนักศึกษา:** 664245013
+
+**ห้อง:** 66/43
+""")
 
 # ตั้งค่าหน้า
 st.set_page_config(
